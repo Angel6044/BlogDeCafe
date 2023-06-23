@@ -1,0 +1,280 @@
+/*CSS GLOBAL*/
+:root {
+    --fontHeading: 'PT Sans', sans-serif;
+    --fontPar: 'PT Sans', sans-serif;
+
+    --primary: #784d3c;
+    --gray: #e1e1e1;
+    --white: #fff;
+    --black: #000;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */    
+}
+*,*:before,*:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: var(--fontPar);
+    font-size: 1.6rem;
+    line-height: 2; /*Interlineado*/
+}
+.container {
+    width: min(90%, 120rem);
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;  /*Quitar interlineado a los enlaces*/
+}
+h1, h2, h3, h4 {
+    font-family: var(--fontHeading);
+}
+h1 {
+    font-size: 4.8rem;
+}
+h2 {
+    font-size: 4rem;
+}
+h3 {
+    font-size: 3.2rem;
+}
+h4 {
+    font-size: 2.8rem;
+}
+img {
+    width: 100%;
+}
+
+/*UTILIDADES*/
+
+.no-margin {
+    margin: 0;
+}
+.no-padding {
+    padding: 0;
+}
+.text-center {
+    text-align: center;
+}
+
+/*HEADER*/
+.webp .header {
+    background-image: url(../img/banner.webp);
+}
+.no-webp .header {
+    background-image: url(../img/banner.jpg);
+}
+.header {
+    height: 60rem;
+    background-size: cover; /*Para que tome todo el espacio disponible*/
+    background-repeat: no-repeat;
+    background-position: center center; /*Centrado HORIZONTAL y VERTICAL*/
+}
+.header__text {
+    text-align: center;
+    color: var(--white);
+    margin-top: 5rem;
+}
+/*MENU y LOGO*/
+
+@media (min-width: 768px){
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.logo {
+    color: var(--white);
+}
+.logo__name {
+    font-weight: 400;
+}
+.logo__bold {
+    font-weight: bold;
+}
+
+@media (min-width: 768px){
+    .navigation {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.navigation__link {
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+/*MAIN*/
+
+@media (min-width: 768px){
+    .container-main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+}
+.article {
+    border-bottom: 1px solid var(--gray);   /*Borde inferior del articulo*/
+    margin-bottom: 2rem;
+}
+.article:last-of-type { /*Modificar el ultimo articulo*/
+    border: none;
+    margin-bottom: 0;
+}
+.botton {
+    display: block;
+    font-family: var(--fontHeading);
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;  /*Mayuscula*/
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.botton--primary {
+    background-color: var(--black);
+}
+.botton:hover {
+    cursor: pointer;
+}
+@media (min-width: 768px){
+    .botton{
+        display: inline-block;/*inline (le dice "Toma el espacio necesario") con forma de block*/
+        /* *Si dejamos solo inline entonces el borde se coloca al lado del boton */
+    }
+}
+
+/*SideBar*/
+
+.botton--secondary {
+    background-color: var(--primary);
+}
+
+.sidebar_courses {
+    list-style: none;
+}
+
+.widget-course {
+    border-bottom: 1px solid var(--gray);
+    margin-bottom: 2rem;
+}
+.widget-course:last-of-type{
+    border: none;
+    margin-bottom: 0;
+}
+.widget-course__label, .course__label {
+    font-family: var(--fontHeading);
+    font-weight: bold;
+}
+.widget-course__info, .course__info {
+    font-weight: normal;
+}
+.widget-course__label, .widget-course__info, .course__info, .course__label {
+    font-size: 2rem;
+}
+/*Footer*/
+
+.footer {
+    background-color: var(--black);
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+.footer__copyright {
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 0;
+    padding: 1rem;
+}
+
+/*---------------------Pagina About-us-----------------------*/
+/*Organizacion*/
+@media (min-width: 768px){
+    .about-us {
+        display: flex;
+        gap: 2rem;
+        /*Para dispositivo que no soporte GAP*/
+        justify-content: space-between;
+    }
+    .about-us__image, .about-us__content {
+        /*Para dispositivo que no soporte GAP.
+        Si soporta solo poner flex-basis: 50%; y no es necesario el justify-content*/
+        flex-basis: calc(50% - 1rem);
+    }
+    p {
+        margin-top: 0;
+    }
+}
+
+/*----------------------Pagina Courses----------------------------*/
+.courses {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--gray);
+}
+.courses:last-of-type {
+    border: none;
+}
+@media (min-width: 768px){
+    .courses {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+.course__image {
+    width: 100%;
+}
+
+/*-----------------------------Pagina POST----------------------------*/
+@media (min-width: 768px){
+    .nv-post {
+        display: flex;
+        justify-content: space-between;
+    }
+    .nv-post__image {
+        width: 50%;
+        height: 50%;
+    }
+    .nv-post__image, .nv-post__content {
+        flex-basis: calc(50% - 1rem);
+    }
+}
+
+/*-------------------------Pagina Contact---------------------------*/
+
+.contact__bg {
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-size: cover; /*Que ocupe todo el espacio disponible*/
+    background-repeat: no-repeat;
+}
+
+.form {
+    background-color: var(--white);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+}
+.field {
+    display: flex;
+    margin-bottom: 2rem;
+}
+.field__label {
+    flex: 0 0 9rem;
+    text-align: right;
+    padding-right: 2rem;
+}
+.field__text {
+    flex: 1rem;
+    border: 1px solid var(--gray);
+}
+.field__text--area {
+    height: 20rem;
+}
